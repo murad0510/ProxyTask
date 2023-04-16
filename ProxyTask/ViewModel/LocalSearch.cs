@@ -8,12 +8,13 @@ namespace ProxyTask.ViewModel
 {
     public class LocalSearch : IMovieSearch
     {
-        List<string> localWord;
+        List<string> localWords;
         IMovieSearch globalWordSearch;
 
         public LocalSearch(IMovieSearch movieSearcher)
         {
-            localWord = new List<string>
+            globalWordSearch = movieSearcher;
+            localWords = new List<string>
             {
                 "a",
                 "aa",
@@ -36,18 +37,31 @@ namespace ProxyTask.ViewModel
             };
         }
 
-        public string SearchWord(string word)
+        public List<string> SearchWord(string word)
         {
-            if (localWord.Any(x => x == word))
+            bool globalWordSearchPeriod = true;
+            List<string> list = new List<string>();
+            for (int i = 0; i < localWords.Count; i++)
             {
-                return localWord.FirstOrDefault(x => x == word);
+                if (localWords[i].Contains(word))
+                {
+                    list.Add(localWords[i]);
+                }
+                else
+                {
+                    if (globalWordSearchPeriod)
+                    {
+                        globalWordSearch = new GlobalMovieSearch();
+                        var result = globalWordSearch.SearchWord(word);
+                        for (int k = 0; k < result.Count; k++)
+                        {
+                            list.Add(result[k]);
+                        }
+                        globalWordSearchPeriod = false;
+                    }
+                }
             }
-            else
-            {
-                var result = globalWordSearch.SearchWord(word);
-                localWord.Add(result);
-                return result;
-            }
+            return list;
         }
     }
 }

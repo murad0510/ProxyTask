@@ -8,6 +8,6 @@ namespace ProxyTask.ViewModel
 {
     public interface IMovieSearch
     {
-        string SearchWord(string word);
+        List<string> SearchWord(string word);
     }
 }
