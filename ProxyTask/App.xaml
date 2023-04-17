@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:ProxyTask"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="Dictionary/Colors.xaml"></ResourceDictionary>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary/Colors.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionary/TextBlockStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionary/ButtonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionary/TextBoxStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionary/ListBoxStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
