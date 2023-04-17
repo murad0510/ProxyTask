@@ -24,7 +24,7 @@
         </Canvas>
 
         <Canvas Grid.Row="2">
-            <ListBox Height="320" Width="300" Background="Red" ItemsSource="{Binding ListBoxItemSource,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <ListBox Height="320" Width="300" Background="{StaticResource color}" ItemsSource="{Binding ListBoxItemSource,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>

@@ -81,10 +81,6 @@ namespace ProxyTask.ViewModel
         {
             ListBoxItemSource = new List<string>();
             ListBoxItemSource = foundWords;
-            if (foundWords.Count == 0)
-            {
-                MessageBox.Show("I don't know word");
-            }
         }
     }
 }

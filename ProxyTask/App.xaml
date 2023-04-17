@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:ProxyTask"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Dictionary/Colors.xaml"></ResourceDictionary>
     </Application.Resources>
 </Application>
